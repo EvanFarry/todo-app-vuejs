@@ -56,8 +56,21 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 60px auto;
 }
+
+@media only screen and (min-width: 800px){
+  #app { width: 80%; }
+}
+
+@media only screen and (min-width: 900px){
+  #app { width: 70%; }
+}
+
+@media only screen and (min-width: 1200px){
+  #app { width: 50%; }
+}
+
 
 h1{
   font-family: 'Avenir';
