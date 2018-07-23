@@ -1,64 +1,63 @@
 <template>
-  <div class="list">
+  <div class="modal grid" >
 
-    <div v-if='expanded'>
-      <div class="modal">
-        <div class="grid">
-          <span class="back" v-on:click='toggleExpand'>Back</span>
-          <span class="title">{{title}}</span>
-          <span class="delete">Delete</span>
-          <ListBody class="listBody"></ListBody>
-        </div>
-      </div>
-    </div>
+    <!-- back button -->
+    <span class="back" v-on:click="$emit('shrink-me')">Back</span>
 
-    <div class="mini" v-else v-on:click='toggleExpand'>
-      <h2>{{title}}</h2>
-    </div>
+
+    <!-- list title -->
+    <span v-if='showForm'>
+      <input type="text"
+             autofocus
+             onfocus="this.select()"
+             value='title'
+             v-model='newTitle'
+             v-on:keyup.enter='submitNewTitle'
+             >
+    </span>
+
+    <span v-else
+      v-on:click='toggleInputForm'
+      class="title"
+      >{{title}}
+    </span>
+
+    <!-- delete button -->
+    <span class="delete" v-on:click="$emit('delete-me')">Delete</span>
+
+    <!-- list body -->
+    <div class="listBody">{{listBody}}</div>
 
   </div>
 </template>
 
 <script>
 
-import ListBody from './list-body.vue'
 
 export default{
   name: 'List',
-  components: {
-    ListBody,
-  },
-  data : () => {
+  data: function() {
     return{
-      title: 'New List',
-      expanded: false,
-      newItem: '',
-      items: [
-        {
-          checkBoxValue: false,
-          itemBody: 'make a to do app',
-        }
-      ],
+      showForm: false,
+      newTitle: this.title,
     }
   },
-  props: {
-    inputData: '',
-  },
+  props: [
+    'title',
+    'listBody'
+  ],
+
   methods: {
-    addItem: function(){
-      this.items.push({
-        checkBoxValue: false,
-        itemBody: this.newItem
-      }
-      )
-      this.newItem = ''
+    toggleInputForm: function() {
+      this.showForm = true;
     },
-    removeItem: function(index){
-      //console.log('Remove index : ' + index);
-      this.items.splice(index, 1)
+    submitNewTitle: function(){
+      this.showForm = false;
+      this.$emit('interface', this.newTitle)
     },
-    toggleExpand: function(){
-      this.expanded = !this.expanded
+    beforeMount: function(){
+      this.newTitle = this.title
+      console.log('premont');
     }
   },
 }
@@ -67,15 +66,6 @@ export default{
 
 <style scoped>
 
-.mini {
-  width: 80%;
-  margin: auto;
-  text-align: center;
-  background-color: #5FA6B7;
-  color: white;
-  padding: 8px 0px;
-  margin-bottom: 20px;
-}
 
 .modal{
   z-index: 1;
@@ -89,6 +79,7 @@ export default{
 .grid{
   display: grid;
   grid-template-columns: 70px 3fr 70px;
+  grid-template-rows: 30px auto;
 }
 
 span{ color: white; }
@@ -97,7 +88,6 @@ span{ color: white; }
 .delete {text-align: right; }
 
 .listBody{
-  padding-top: 50px;
   grid-column: 1/4;
   grid-row: 2;
 }
