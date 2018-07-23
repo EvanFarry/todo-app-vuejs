@@ -7,23 +7,25 @@
 
     <!-- List of Lists -->
     <div v-for="(list, index) in lists" v-bind:key='list.id'>
-
       <div>
-
-        <!-- expanded model-->
+        <!-- expanded modal -->
         <div v-if='list.expand' >
           <List
             v-on:delete-me='deleteList(index)'
             v-on:shrink-me='shrink(index)'
             v-bind:title='list.title'
             v-bind:listBody='list.body'
-            @interface='list.title = $event'
+            v-bind:listItems='list.toDoItems'
+            v-on:interface='list.title = $event'
+            v-on:addNewItem='addListItem($event, index)'
+            v-on:deleteListItem='deleteListItem($event, index)'
             >
           </List>
         </div>
 
         <!-- minimized list item -->
         <div
+          v-bind:class="{ 'hide' : isModal }"
           v-else
           class="mini"
           v-on:click="expand(index)">
@@ -31,12 +33,11 @@
         </div>
 
       </div>
-
-    </div>
+    </div><!-- end v-for -->
 
 
     <!-- add new list button -->
-    <div class="addListButton">
+    <div class="addListButton" v-bind:class="{ 'hide' : isModal }">
       <img src="./assets/newListButton@3x.png"
        v-on:click='addNewList'
        height="50px"
@@ -57,32 +58,45 @@ export default {
   },
   data: function(){
     return{
-      lists: []
+      lists: [],
+      isModal: false,
     }
   },
+  computed: {
+
+  },
   methods: {
-    // reference : https://codesandbox.io/embed/4l3w20zomw
     addNewList: function(){
       this.lists.push(
         {
           expand: false,
           title: 'New List',
           body: 'This is a List body',
-          toDoItems: []
+          toDoItems: ['make to do app', 'get featured', 'profit...?']
         }
       );
     },
     deleteList: function(index){
       this.lists.splice(index,1);
+      this.isModal = !this.isModal;
+    },
+    addListItem: function(e, index){
+      this.lists[index].toDoItems.push(e);
+    },
+    deleteListItem: function(e, index){
+      let i = this.lists[index].toDoItems.indexOf(e);
+      this.lists[index].toDoItems.splice(i,1);
     },
     expand: function(index){
       this.lists[index].expand = true;
+      this.isModal = !this.isModal;
     },
     shrink: function(index){
       this.lists[index].expand = false;
+      this.isModal = !this.isModal;
     },
     childDataHandler: function(event){
-      console.log('child data handler? idk', event);
+
     }
   },
 }
@@ -126,5 +140,7 @@ h1{
   text-align: center;
   margin-top: 30px;
 }
+
+.hide{ display: none; }
 
 </style>
