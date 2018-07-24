@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="24px" viewBox="0 0 13 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>backButton</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="backButton" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M3.24651549,12 L12.1377551,20.8912396 C12.6441855,21.39767 12.6441855,22.218756 12.1377551,22.7251864 C11.6313247,23.2316168 10.8102387,23.2316168 10.3038083,22.7251864 L0.862244898,13.283623 C0.514748939,12.936127 0.405693318,12.4404832 0.535078036,12 C0.405693318,11.5595168 0.514748939,11.063873 0.862244898,10.716377 L10.3038083,1.27481359 C10.8102387,0.768383166 11.6313247,0.768383166 12.1377551,1.27481359 C12.6441855,1.78124401 12.6441855,2.60232996 12.1377551,3.10876039 L3.24651549,12 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+    </g>
+</svg>

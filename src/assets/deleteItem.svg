@@ -1,0 +1,10 @@
+
+<svg width="19px" height="20px" viewBox="0 0 19 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="delete-item">
+      <g id="list-item" transform="translate(-236.000000, -5.000000)">
+        <g id="delete-list-item" transform="translate(244.970563, 14.970563) rotate(-45.000000) translate(-244.970563, -14.970563) translate(232.970563, 2.970563)">
+            <path d="M11.2771084,11.2771084 L11.2771084,3.55271368e-15 L13.0120482,3.55271368e-15 L13.0120482,11.2771084 L24,11.2771084 L24,13.0120482 L13.0120482,13.0120482 L13.0120482,24 L11.2771084,24 L11.2771084,13.0120482 L0,13.0120482 L0,11.2771084 L11.2771084,11.2771084 Z" id="Combined-Shape"></path>
+        </g>
+      </g>
+    </g>
+</svg>
