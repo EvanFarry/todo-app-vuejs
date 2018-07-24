@@ -89,6 +89,14 @@ export default{
       this.newTitle = this.title
     }
   },
+  watch: {
+    /*
+    items: {
+      handler() { console.log('a list item has changed'); },
+      deep: true
+    },
+    */
+  },
 }
 </script>
 

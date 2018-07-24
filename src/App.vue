@@ -97,7 +97,22 @@ export default {
     },
     childDataHandler: function(event){
 
-    }
+    },
+  },
+  mounted() {
+    console.log("App Mounted!");
+    if (localStorage.getItem('lists')) {
+      this.lists = (JSON.parse(localStorage.getItem('lists')));
+    };
+  },
+  watch: {
+    lists: {
+      handler(){
+        console.log('a list has changed');
+        localStorage.setItem('lists', JSON.stringify(this.lists));
+      },
+      deep: true
+    },
   },
 }
 </script>
