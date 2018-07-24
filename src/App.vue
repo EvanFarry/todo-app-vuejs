@@ -72,7 +72,7 @@ export default {
           expand: false,
           title: 'New List',
           body: 'This is a List body',
-          toDoItems: ['make to do app', 'get featured', 'profit...?']
+          toDoItems: []
         }
       );
     },
