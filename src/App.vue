@@ -29,7 +29,7 @@
           v-else
           class="mini"
           v-on:click="expand(index)">
-          {{list.title}}
+          <span>{{list.title}}</span>
         </div>
 
       </div>
@@ -93,22 +93,28 @@ export default {
     },
     shrink: function(index){
       this.lists[index].expand = false;
-      this.isModal = !this.isModal;
+      if (this.isModal == true) {
+        this.isModal = !this.isModal;
+      }
     },
-    childDataHandler: function(event){
-
+    shrinkAll: function(){
+      for (var i = 0; i < this.lists.length; i++) {
+        this.shrink(i);
+      }
     },
   },
   mounted() {
-    console.log("App Mounted!");
+    //console.log("App Mounted!");
     if (localStorage.getItem('lists')) {
       this.lists = (JSON.parse(localStorage.getItem('lists')));
-    };
+    }
+    /* shrink all modals on refresh  */
+    this.shrinkAll();
   },
   watch: {
     lists: {
       handler(){
-        console.log('a list has changed');
+        //console.log('a list has changed');
         localStorage.setItem('lists', JSON.stringify(this.lists));
       },
       deep: true
@@ -134,7 +140,7 @@ export default {
 
 
 h1{
-  font-family: 'Avenir';
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   font-weight: 200;
   text-align: center;
   color: #73B3C2;
@@ -142,13 +148,25 @@ h1{
 }
 
 .mini {
-  width: 80%;
+  width: 70%;
   margin: auto;
   text-align: center;
   background-color: #5FA6B7;
   color: white;
   padding: 8px 0px;
   margin-bottom: 20px;
+  transition: width .1s;
+}
+
+.mini > span {
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  opacity: .8;
+}
+
+.mini:hover{
+  width: 75%;
+  cursor: pointer;
 }
 
 .addListButton{

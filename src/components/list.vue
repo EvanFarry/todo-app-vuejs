@@ -46,7 +46,7 @@
     <!-- list body -->
     <div class="listBody">
       <!-- list item -->
-      <div class="item-grid" v-for='(item,index) in items' v-bind:key='items.id'>
+      <div class="item-grid" v-for='(item,index) in items' v-bind:key='item.id'>
         <span><input type="checkbox"></span>
         <span>{{item}}</span>
         <span>
@@ -128,8 +128,7 @@ export default{
   z-index: 1;
   margin: auto;
   width: 70%;
-  height: 450px;
-  overflow: auto;
+  overflow: hidden;
   background-color: #73B3C2;
 }
 
@@ -144,16 +143,18 @@ export default{
 
 /*-- back Icon --*/
 .back-icon{ fill: white; }
-.back:hover{ opacity: 0.6; }
 
 /*-- delete LIST icon --*/
 .delete-list-icon{ transform: rotate(45deg); }
 .delete-list-icon{ fill : red; }
-.delete-list:hover{ opacity: 0.6;}
 
 /*-- delete item icon --*/
 .delete-item-icon{ fill: red; }
-.delete-item-icon:hover{ opacity: 0.6;}
+
+.back, .delete-list-icon, .delete-item-icon:hover{
+  opacity: 0.6;
+  cursor: pointer;
+}
 
 .inputForm{
   margin: 5px 0px 30px 0;
@@ -169,7 +170,7 @@ export default{
 }
 .inputForm::placeholder{
   color: white;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 .inputForm:focus::placeholder{
   color: #73B3C2;
@@ -187,12 +188,17 @@ export default{
 
 span { color: white; }
 .back { text-align: left; }
-.title { text-align: center; }
+.listTitle { text-align: center; }
 .delete-list {text-align: right; }
+
+.listTitle:hover::after{
+  content: url('../assets/edit-icon.svg');
+}
 
 .listBody{
   grid-column: 1/4;
   grid-row: 2;
+  overflow: scroll;
 }
 
 /*--  item-grid  --*/
