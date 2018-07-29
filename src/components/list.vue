@@ -131,7 +131,6 @@ export default{
   margin: auto;
   width: 70%;
   border-radius: 3px;
-  overflow: hidden;
   background-color: #73B3C2;
 
 }

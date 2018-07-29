@@ -1,7 +1,8 @@
 html{
   height: 120%;
-  overflow: scroll;
   background: linear-gradient(white, #A6F7FF);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 h1, h2 {
