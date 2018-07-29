@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="newListButton" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <circle id="Oval" fill="#8ED9E0" cx="25" cy="25" r="25"></circle>
+            <path d="M28.212766,22.287234 L38.5,22.287234 L38.5,27.712766 L28.212766,27.712766 L28.212766,38 L22.787234,38 L22.787234,27.712766 L12.5,27.712766 L12.5,22.287234 L22.787234,22.287234 L22.787234,12 L28.212766,12 L28.212766,22.287234 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>

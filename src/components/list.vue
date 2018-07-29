@@ -1,5 +1,5 @@
 <template>
-  <div class="modal grid">
+  <div class="modal grid" v-on:keyup.esc="$emit('shrink-me')">
 
 
     <!-- back button -->
@@ -130,8 +130,10 @@ export default{
   z-index: 1;
   margin: auto;
   width: 70%;
+  border-radius: 3px;
   overflow: hidden;
   background-color: #73B3C2;
+
 }
 
 .listTitle {

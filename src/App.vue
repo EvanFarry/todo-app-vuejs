@@ -38,10 +38,17 @@
 
     <!-- add new list button -->
     <div class="addListButton" v-bind:class="{ 'hide' : isModal }">
-      <img src="./assets/newListButton@3x.png"
-       v-on:click='addNewList'
-       height="50px"
-       width="50px">
+      <svg width="50px"
+           height="50px"
+           v-on:click='addNewList'
+           >
+        <g id="newListSvg">
+          <g>
+            <circle id="Oval" fill="#8ED9E0" cx="25" cy="25" r="25"></circle>
+            <path d="M28.212766,22.287234 L38.5,22.287234 L38.5,27.712766 L28.212766,27.712766 L28.212766,38 L22.787234,38 L22.787234,27.712766 L12.5,27.712766 L12.5,22.287234 L22.787234,22.287234 L22.787234,12 L28.212766,12 L28.212766,22.287234 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+          </g>
+        </g>
+      </svg>
      </div>
 
   </div>
@@ -71,7 +78,6 @@ export default {
         {
           expand: false,
           title: 'New List',
-          body: 'This is a List body',
           toDoItems: []
         }
       );
@@ -107,6 +113,9 @@ export default {
         this.shrink(i);
       }
     },
+    hoverNewList: function(){
+      console.log('hover!');
+    }
   },
   mounted() {
     if (localStorage.getItem('lists')) {
@@ -155,6 +164,7 @@ h1{
   margin: auto;
   text-align: center;
   background-color: #5FA6B7;
+  border-radius: 3px;
   color: white;
   padding: 8px 0px;
   margin-bottom: 20px;
@@ -175,7 +185,16 @@ h1{
 .addListButton{
   text-align: center;
   margin-top: 30px;
+  transition: transform .1s;
 }
+.addListButton:hover{
+  cursor: pointer;
+  transform: scale(.8);
+}
+
+
+
+
 
 .hide{ display: none; }
 
