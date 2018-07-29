@@ -113,9 +113,6 @@ export default {
         this.shrink(i);
       }
     },
-    hoverNewList: function(){
-      console.log('hover!');
-    }
   },
   mounted() {
     if (localStorage.getItem('lists')) {
@@ -185,11 +182,6 @@ h1{
 .addListButton{
   text-align: center;
   margin-top: 30px;
-  transition: transform .1s;
-}
-.addListButton:hover{
-  cursor: pointer;
-  transform: scale(.8);
 }
 
 
