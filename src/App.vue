@@ -81,7 +81,12 @@ export default {
       this.isModal = !this.isModal;
     },
     addListItem: function(e, index){
-      this.lists[index].toDoItems.push(e);
+      this.lists[index].toDoItems.push(
+        {
+          "checked":false,
+          "body":e,
+        }
+      );
     },
     deleteListItem: function(e, index){
       let i = this.lists[index].toDoItems.indexOf(e);
@@ -104,7 +109,6 @@ export default {
     },
   },
   mounted() {
-    //console.log("App Mounted!");
     if (localStorage.getItem('lists')) {
       this.lists = (JSON.parse(localStorage.getItem('lists')));
     }
@@ -114,7 +118,6 @@ export default {
   watch: {
     lists: {
       handler(){
-        //console.log('a list has changed');
         localStorage.setItem('lists', JSON.stringify(this.lists));
       },
       deep: true
@@ -125,7 +128,7 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', 'Helvetica', 'Arial', 'sans-serif';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;

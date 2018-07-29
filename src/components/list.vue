@@ -47,8 +47,10 @@
     <div class="listBody">
       <!-- list item -->
       <div class="item-grid" v-for='(item,index) in items' v-bind:key='item.id'>
-        <span><input type="checkbox"></span>
-        <span>{{item}}</span>
+        <span>
+          <input v-model='item.checked' type="checkbox">
+        </span>
+        <span>{{item.body}}</span>
         <span>
           <svg class="delete-item-icon" v-on:click="deleteListItem(index)" width="19px" height="20px" viewBox="0 0 19 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g id="delete-item">
@@ -198,7 +200,6 @@ span { color: white; }
 .listBody{
   grid-column: 1/4;
   grid-row: 2;
-  overflow: scroll;
 }
 
 /*--  item-grid  --*/
